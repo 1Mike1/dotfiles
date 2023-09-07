@@ -1,8 +1,16 @@
 local plugins = {
-  {'christoomey/vim-tmux-navigator'},
+  {
+    "christoomey/vim-tmux-navigator"
+  },
+  {
+    "NvChad/nvterm",
+    config = function ()
+      require("nvterm").setup()
+    end,
+  },
   {
     'rmagatti/auto-session',
-    cmd = {"SessionSave", "SessionRestore", "Autosession", },
+    cmd = {"SessionSave", "SessionRestore", "Autosession", "SessionLoad" },
     opts = function()
       return require("custom.configs.auto-session")
     end,

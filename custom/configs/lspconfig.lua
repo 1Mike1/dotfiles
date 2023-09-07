@@ -1,7 +1,7 @@
-local configs = require("plugins.configs.lspconfig")
+local config = require("plugins.configs.lspconfig")
 
-local on_attach = configs.on_attach
-local capabilites = configs.capabilities
+local on_attach = config.on_attach
+local capabilites = config.capabilities
 
 local lspconfig = require("lspconfig")
 
@@ -40,4 +40,4 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
-return configs
+return config

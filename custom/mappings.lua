@@ -44,4 +44,26 @@ M.mason = {
   },
 }
 
+M.session = {
+  n = {
+    ["<leader>ss"] = {"<cmd> SessionSave <CR>", "SessionSave", opts={silent=true, nowait=true}},
+    ["<leader>sd"] = {"<cmd> SessionDelete <CR>", "SessionDelete", opts={silent=true, nowait=true}},
+    ["<leader>sr"] = {"<cmd> SessionRestore <CR>", "SessionRestore", opts={silent=true, nowait=true}},
+
+  },
+}
+
+local toggle_modes = {'n', 't'}
+local mappings = {
+  { toggle_modes, '<A-h>', function () require("nvterm.terminal").toggle('horizontal') end },
+  { toggle_modes, '<A-v>', function () require("nvterm.terminal").toggle('vertical') end },
+  { toggle_modes, '<A-i>', function () require("nvterm.terminal").toggle('float') end },
+  { toggle_modes, '<A-p>', function () require("nvterm.terminal").send('python3','float') end },
+  { toggle_modes, '<A-n>', function () require("nvterm.terminal").send('node','float') end },
+}
+local opts = { noremap = true, silent = true }
+for _, mapping in ipairs(mappings) do
+  vim.keymap.set(mapping[1], mapping[2], mapping[3], opts)
+end
+
 return M
