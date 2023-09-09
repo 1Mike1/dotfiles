@@ -15,18 +15,18 @@ env:
 
 window:
   # decorations: buttonless
-  # decorations: Full # It will show all the buttons and titlebar
+  #decorations: Full # It will show all the buttons and titlebar
   decorations: None # It will hide everthing
   dynamic_padding: false
-  # dynamic_title: false
+  dynamic_title: true
     #startup_mode: Windowed
-  opacity: 0.98
+  opacity: 0.90
   dimensions:  # to the terminal size
-    columns: 192
-    lines: 45
+    columns: 195
+    lines: 50
   padding:
-    x: 15
-    y: 10
+    x: 5
+    y: 5
 
 font:
   normal:
