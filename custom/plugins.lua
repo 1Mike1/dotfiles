@@ -1,6 +1,8 @@
 local plugins = {
   {
-    "christoomey/vim-tmux-navigator"
+    "christoomey/vim-tmux-navigator",
+    cmd = {"TmuxNavigateLeft", "TmuxNavigateDown", "TmuxNavigateUp", "TmuxNavigateRight", "TmuxNavigatePrevious"},
+    lazy = false,
   },
   {
     "NvChad/nvterm",
