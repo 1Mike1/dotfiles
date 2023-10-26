@@ -4,12 +4,35 @@ local on_attach = config.on_attach
 local capabilites = config.capabilities
 
 local lspconfig = require("lspconfig")
+local util = require "lspconfig/util"
 
 lspconfig.pyright.setup({
   on_attach = on_attach,
   capabilities = capabilites,
   filetype = { "python" },
 })
+
+-- lspconfig.rust_analyzer.setup({
+--   on_attach = on_attach,
+--   capabilities = capabilites,
+--   filetype = { "rust" },
+--   root_dir = util.root_pattern("Cargo.toml", "rust-project.json"),
+--   settings = {
+--     ["rust-analyzer"] = {
+--       assist = {
+--         importGranularity = "module",
+--         importPrefix = "by_self",
+--       },
+--       cargo = {
+--         loadOutDirsFromCheck = true,
+--         allFeatures = true,
+--       },
+--       procMacro = {
+--         enable = true,
+--       },
+--     },
+--   },
+-- })
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),

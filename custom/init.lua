@@ -61,7 +61,7 @@ vim.g.markdown_fenced_languages = {
   "python3",
   "ts=typescript",
 }
-
+vim.g.dap_virtual_text = true
 --tmux
 -- vim.cmd([[
 --   noremap <silent> <c-h> :<C-U>TmuxNavigateLeft<cr>
