@@ -24,9 +24,22 @@ end
 -- typescript
 lspconfig.tsserver.setup {
   on_attach = on_attach,
-  on_init = on_init,
   capabilities = capabilities,
 }
+
+-- tailwindcss
+lspconfig.tailwindcss.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
+--eslint
+lspconfig.eslint.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
+
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),

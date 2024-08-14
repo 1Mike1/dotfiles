@@ -10,6 +10,11 @@ return {
             "pyright",
             "rust-analyzer",
             "prettierd",
+            "typescript-language-server",
+            "tailwindcss-language-server",
+            "eslint-lsp",
+            "html-lsp",
+            "css-lsp",
         },
     },
 }
