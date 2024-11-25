@@ -7,6 +7,7 @@ local options = {
     json = { "prettier" },
     html = { "prettier" },
     css = { "prettier" },
+    rust = { "rustfmt" },
     -- css = { "prettier" },
     -- html = { "prettier" },
   },
