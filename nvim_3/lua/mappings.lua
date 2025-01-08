@@ -19,9 +19,10 @@ map("n", "<leader>cc", "<cmd> Copilot <CR>", { desc = "Copilot" })
 map("n", "<leader>cm", "<cmd> Mason <CR>", { desc = "Mason" })
 
 -- Map for session with leader + s
-map("n", "<leader>ss", "<cmd> SessionSave <CR>", { desc = "SessionSave" }, { noremap = true }, { silent = true })
-map("n", "<leader>sd", "<cmd> SessionDelete <CR>", { desc = "SessionDelete" }, { noremap = true }, { silent = true })
-map("n", "<leader>sr", "<cmd> SessionRestore <CR>", { desc = "SessionRestore" }, { noremap = true }, { silent = true })
+map("n", "<leader>sf", "<cmd> SessionSearch <CR>", { desc = "SessionSearch" })   --{ noremap = true }, { silent = true })
+map("n", "<leader>ss", "<cmd> SessionSave <CR>", { desc = "SessionSave" })       --{ noremap = true }, { silent = true })
+map("n", "<leader>sd", "<cmd> SessionDelete <CR>", { desc = "SessionDelete" })   --{ noremap = true }, { silent = true })
+map("n", "<leader>sr", "<cmd> SessionRestore <CR>", { desc = "SessionRestore" }) --{ noremap = true }, { silent = true })
 
 -- Map for nvterm
 -- map({ "n", "i", "v" }, "<A-h>", function () require("nvterm.terminal").toggle('horizontal') end)
@@ -34,7 +35,7 @@ map({ "n", "i", "v" }, "<A-n>", function () require("nvterm.terminal").send('nod
 map({ "n", "i", "v" }, "<A-t>", function () require("nvterm.terminal").send('btm','float') end)
 
 -- Map for dap
---map("n", "<leader>db", "<cmd> DapToggleBreakpoint <CR>", { desc = "DapToggleBreakpoint" })
+--map("n", "<leader>db", "<cmd> DapToggleBreakpoint <CR>", { desc = "DapToggleBeakpoint" })
 --map("n", "<leader>dus", function ()
 --  local widgets = require('dap.ui.widgets');
 --  local sidebar = widgets.sidebar(widgets.scopes);

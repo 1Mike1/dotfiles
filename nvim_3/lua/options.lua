@@ -12,7 +12,6 @@ require "nvchad.options"
 --
 --vim.opt.number = true
 --
---vim.opt.title = true
 --vim.opt.autoindent = true
 --vim.opt.smartindent = true
 --vim.opt.hlsearch = true
@@ -41,6 +40,11 @@ require "nvchad.options"
 --vim.opt.formatoptions:append({ "r" })
 --
 --
+vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+vim.scriptencoding = "utf-8"
+vim.opt.encoding = "utf-8"
+vim.opt.fileencoding = "utf-8"
+vim.opt.title = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.wrap = false
@@ -92,19 +96,19 @@ vim.g.netrw_liststyle = 3
 
 -- Give me some fenced codeblock goodness
 vim.g.markdown_fenced_languages = {
-  "html",
-  "javascript",
-  "javascriptreact",
-  "typescript",
-  "json",
-  "css",
-  "scss",
-  "lua",
-  "vim",
-  "bash",
-  "python",
-  "python3",
-  "ts=typescript",
+    "html",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "json",
+    "css",
+    "scss",
+    "lua",
+    "vim",
+    "bash",
+    "python",
+    "python3",
+    "ts=typescript",
 }
 vim.g.dap_virtual_text = true
 --tmux

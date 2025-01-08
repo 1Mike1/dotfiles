@@ -18,7 +18,11 @@ return {
             "bash",
             "sql",
             "dockerfile",
-            "http"
+            "http",
+            "tsx",
+            "angular",
+            "scss",
+            "markdown",
         },
     },
 }
