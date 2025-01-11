@@ -23,6 +23,7 @@ return {
             "angular",
             "scss",
             "markdown",
+            "norg"
         },
     },
 }
