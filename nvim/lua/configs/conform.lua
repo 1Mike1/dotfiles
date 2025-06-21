@@ -1,12 +1,11 @@
 local options = {
   formatters_by_ft = {
     lua = { "stylua" },
-    python = { "isort", "black" },
-    javascript = { "prettierd" },
-    typescript = { "prettierd" },
-    json = { "prettierd" },
-    html = { "prettierd" },
-    css = { "prettierd" },
+    css = { "prettier" },
+    html = { "prettier" },
+    typescript = { "prettier" },
+    javascript = { "prettier" },
+    json = { "prettier" },
   },
 
   -- format_on_save = {
@@ -16,4 +15,4 @@ local options = {
   -- },
 }
 
-require("conform").setup(options)
+return options

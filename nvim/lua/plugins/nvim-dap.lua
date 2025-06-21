@@ -8,7 +8,7 @@ return {
     keys = {
         { "<F4>", "<CMD>DapTerminate<CR>", desc = "DAP Terminate" },
         { "<F5>", "<CMD>DapContinue<CR>", desc = "DAP Continue" },
-        { "<F17>", function() require("dap").run_last() end, desc = "Run Last" },
+        { "<F7>", function() require("dap").run_last() end, desc = "Run Last" },
         { "<F6>", function() require("dap").run_to_cursor() end, desc = "Run to Cursor" },
         { "<F9>", "<CMD>DapToggleBreakpoint<CR>", desc = "Toggle Breakpoint" },
         {

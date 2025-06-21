@@ -2,19 +2,13 @@ return {
     "williamboman/mason.nvim",
     opts = {
         ensure_installed = {
-            "black",
-            "isort",
-            "debugpy",
-            "mypy",
-            "ruff",
             "pyright",
-            "rust-analyzer",
-            "prettierd",
-            "typescript-language-server",
             "tailwindcss-language-server",
-            "eslint-lsp",
-            "html-lsp",
-            "css-lsp",
+            "angular-language-server",
+            "lua-language-server",
+            "typescript-language-server",
+            "rust-analyzer", -- install using mason bcz there is no need of lsp config
+            "codelldb", -- insall using mason, no need of lsp config
         },
     },
 }

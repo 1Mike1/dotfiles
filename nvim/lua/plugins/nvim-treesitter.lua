@@ -16,6 +16,13 @@ return {
             "cpp",
             "rust",
             "bash",
+            "sql",
+            "dockerfile",
+            "http",
+            "tsx",
+            "angular",
+            "scss",
+            "markdown",
         },
     },
 }

@@ -19,9 +19,10 @@ map("n", "<leader>cc", "<cmd> Copilot <CR>", { desc = "Copilot" })
 map("n", "<leader>cm", "<cmd> Mason <CR>", { desc = "Mason" })
 
 -- Map for session with leader + s
-map("n", "<leader>ss", "<cmd> SessionSave <CR>", { desc = "SessionSave" }, { noremap = true }, { silent = true })
-map("n", "<leader>sd", "<cmd> SessionDelete <CR>", { desc = "SessionDelete" }, { noremap = true }, { silent = true })
-map("n", "<leader>sr", "<cmd> SessionRestore <CR>", { desc = "SessionRestore" }, { noremap = true }, { silent = true })
+map("n", "<leader>sf", "<cmd> SessionSearch <CR>", { desc = "SessionSearch" })   --{ noremap = true }, { silent = true })
+map("n", "<leader>ss", "<cmd> SessionSave <CR>", { desc = "SessionSave" })       --{ noremap = true }, { silent = true })
+map("n", "<leader>sd", "<cmd> SessionDelete <CR>", { desc = "SessionDelete" })   --{ noremap = true }, { silent = true })
+map("n", "<leader>sr", "<cmd> SessionRestore <CR>", { desc = "SessionRestore" }) --{ noremap = true }, { silent = true })
 
 -- Map for nvterm
 -- map({ "n", "i", "v" }, "<A-h>", function () require("nvterm.terminal").toggle('horizontal') end)
@@ -34,17 +35,35 @@ map({ "n", "i", "v" }, "<A-n>", function () require("nvterm.terminal").send('nod
 map({ "n", "i", "v" }, "<A-t>", function () require("nvterm.terminal").send('btm','float') end)
 
 -- Map for dap
-map("n", "<leader>db", "<cmd> DapToggleBreakpoint <CR>", { desc = "DapToggleBreakpoint" })
-map("n", "<leader>dus", function ()
-  local widgets = require('dap.ui.widgets');
-  local sidebar = widgets.sidebar(widgets.scopes);
-  sidebar.open();
-end, { desc = "Open debugging sidebar" })
+--map("n", "<leader>db", "<cmd> DapToggleBreakpoint <CR>", { desc = "DapToggleBeakpoint" })
+--map("n", "<leader>dus", function ()
+--  local widgets = require('dap.ui.widgets');
+--  local sidebar = widgets.sidebar(widgets.scopes);
+--  sidebar.open();
+--end, { desc = "Open debugging sidebar" })
 
 -- Map for dap-python
-map("n", "<leader>dpr", function()
-  require('dap-python').test_method()
-end)
+--map("n", "<leader>dpr", function()
+--  require('dap-python').test_method()
+--end)
+
+-- Nvim DAP
+map("n", "<Leader>dl", "<cmd>lua require'dap'.step_into()<CR>", { desc = "Debugger step into" })
+map("n", "<Leader>dj", "<cmd>lua require'dap'.step_over()<CR>", { desc = "Debugger step over" })
+map("n", "<Leader>dk", "<cmd>lua require'dap'.step_out()<CR>", { desc = "Debugger step out" })
+map("n", "<Leader>dc", "<cmd>lua require'dap'.continue()<CR>", { desc = "Debugger continue" })
+map("n", "<Leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", { desc = "Debugger toggle breakpoint" })
+map(
+	"n",
+	"<Leader>dd",
+	"<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>",
+	{ desc = "Debugger set conditional breakpoint" }
+)
+map("n", "<Leader>de", "<cmd>lua require'dap'.terminate()<CR>", { desc = "Debugger reset" })
+map("n", "<Leader>dr", "<cmd>lua require'dap'.run_last()<CR>", { desc = "Debugger run last" })
+
+-- rustaceanvim
+map("n", "<Leader>dt", "<cmd>lua vim.cmd('RustLsp testables')<CR>", { desc = "Debugger testables" })
 
 -- Map for crates
 map("n", "<leader>rcu", function ()
