@@ -6,8 +6,10 @@
 ;;(setq fancy-splash-image "~/.config/doom/banner/hacker.png")
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
+;; credentials
 (setq user-full-name "Mike"
       user-mail-address "mike@gmail.com")
+
 (use-package! gcmh
   :init
   (setq gcmh-idle-delay 5
@@ -16,10 +18,6 @@
   (gcmh-mode 1))
 
 (setq gc-cons-threshold 200000000) ; previous 33554432
-
-;; credentials
-(setq user-full-name "Michael Neuper"
-      user-mail-address "michael@michaelneuper.com")
 
 ;; autosave and backup
 (setq auto-save-default t
@@ -69,7 +67,7 @@
     (defconst my/sans-serif-font "JetBrainsMono Nerd Font")
     (defconst my/mono-font "JetBrainsMono Nerd Font")))
 
-(setq doom-font (font-spec :family my/mono-font :size 14)
+(setq doom-font (font-spec :family my/mono-font :size 12)
       doom-variable-pitch-font (font-spec :family my/serif-font)
       doom-emoji-font (font-spec :family "JetBrainsMono Nerd Font Mono" :size 14))
 
@@ -145,6 +143,71 @@
 
 ;; Map Ctrl+Shift+V to yank (paste)
 (map! "C-S-v" #'yank)
+
+;; Open a vterm in a new buffer
+(map! :leader
+      :desc "Open vterm"
+      "o t" #'vterm)  ;; SPC o t
+
+(setq org-directory "~/org/"
+      org-agenda-files '("~/org/tasks.org"))
+
+(add-hook 'python-mode-hook #'lsp)
+(setq lsp-headerline-breadcrumb-enable t)
+(add-hook 'python-mode-hook #'format-all-mode)
+(setq company-idle-delay 0.1)
+
+;; speed optimization
+(setq gc-cons-threshold (* 50 1000 1000))
+
+
+;; -----------------------------------------
+;; LSP General Config
+;; -----------------------------------------
+(setq lsp-enable-symbol-highlighting t
+      lsp-headerline-breadcrumb-enable t
+      lsp-lens-enable t
+      lsp-log-io nil
+      lsp-ui-doc-delay 0.2
+      lsp-ui-doc-show-with-cursor t
+      lsp-ui-doc-show-with-mouse t)
+
+
+;; -----------------------------------------
+;; Rust settings
+;; -----------------------------------------
+(after! rustic
+  (setq rustic-format-on-save t)  ;; auto-format with rustfmt
+  (setq lsp-rust-analyzer-cargo-watch-command "clippy")
+  (setq lsp-rust-analyzer-proc-macro-enable t))
+
+;; Optional: auto-run tests
+(map! :leader
+      :desc "Run cargo test"
+      "m t" #'rustic-cargo-test)
+
+;; -----------------------------------------
+;; Python settings
+;; -----------------------------------------
+(after! python
+  (setq python-shell-interpreter "python3"))
+
+;; Use black formatting
+(after! lsp-python-ms
+  (setq lsp-pylsp-plugins-black-enabled t))
+
+;; -----------------------------------------
+;; Autoformat on save for Python
+;; -----------------------------------------
+(add-hook 'python-mode-hook
+          (lambda ()
+            (add-hook 'before-save-hook #'lsp-format-buffer nil t)))
+
+;; -----------------------------------------
+;; Tree-sitter: native highlighting
+;; -----------------------------------------
+(add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
+
 
 ;; Customized key bindings
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
