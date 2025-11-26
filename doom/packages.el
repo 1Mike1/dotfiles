@@ -1,80 +1,74 @@
 ;; -*- no-byte-compile: t; -*-
 ;;; $DOOMDIR/packages.el
 
-;; To install a package:
-;;
-;;   1. Declare them here in a `package!' statement,
-;;   2. Run 'doom sync' in the shell,
-;;   3. Restart Emacs.
-;;
-;; Use 'C-h f package\!' to look up documentation for the `package!' macro.
-
-
-;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
-;; (package! some-package)
+;; ------------------------------
+;; Documentation / Knowledge Tools
+;; ------------------------------
 (package! tldr)
-(package! elfeed-tube)
-(package! elfeed-goodies)
-(package! ob-go)
-(package! ob-rust)
-(package! ob-async)
 (package! mixed-pitch)
 (package! valign)
-(package! highlight-indent-guides)
-(package! centaur-tabs)
-(package! websocket)
+(package! rainbow-mode)
+
+;; Org & Writing Enhancements
 (package! org-fragtog)
 (package! ox-hugo)
 (package! org-roam-bibtex)
 (package! citar-org-roam)
 (package! citar-embark)
 (package! org-ref)
-(package! lsp-pyright)
-(package! pyvenv)
-(package! rust-mode)
-(package! cargo)
-(package! lsp-mode)
-(package! lsp-ui)
-(package! flycheck-rust)
+(package! ob-async)
+
+;; Elfeed enhancements
+(package! elfeed-tube)
+(package! elfeed-goodies)
+
+;; ------------------------------
+;; Python Development
+;; ------------------------------
+(package! pyvenv)           ;; Virtualenv manager
+(package! pipenv)           ;; Optional: pipenv support
+(package! poetry)           ;; Optional: poetry support
+
+(package! lsp-pyright)      ;; Best Python LSP server
+(package! python-black)     ;; Formatting on save
+(package! python-isort)     ;; Sort imports automatically
+
+;; Debugging
+(package! dap-mode)         ;; Debug Python w/debugpy
+(package! realgud)          ;; Advanced debugging backend
+
+
+;; ------------------------------
+;; Rust Development
+;; ------------------------------
+(package! rust-mode)        ;; For rustic/lsp-mode
+(package! cargo)            ;; Cargo integration
 (package! toml-mode)
-(package! rainbow-mode)
+(package! flycheck-rust)    ;; Integrate rustc/clippy errors
 
-;; To install a package directly from a remote git repo, you must specify a
-;; `:recipe'. You'll find documentation on what `:recipe' accepts here:
-;; https://github.com/radian-software/straight.el#the-recipe-format
-;; (package! another-package
-;;   :recipe (:host github :repo "username/repo"))
-
-;; If the package you are trying to install does not contain a PACKAGENAME.el
-;; file, or is located in a subdirectory of the repo, you'll need to specify
-;; `:files' in the `:recipe':
-;; (package! this-package
-;;   :recipe (:host github :repo "username/repo"
-;;            :files ("some-file.el" "src/lisp/*.el")))
-
-;; If you'd like to disable a package included with Doom, you can do so here
-;; with the `:disable' property:
-;; (package! builtin-package :disable t)
-
-;; You can override the recipe of a built in package without having to specify
-;; all the properties for `:recipe'. These will inherit the rest of its recipe
-;; from Doom or MELPA/ELPA/Emacsmirror:
-;; (package! builtin-package :recipe (:nonrecursive t))
-;; (package! builtin-package-2 :recipe (:repo "myfork/package"))
-
-;; Specify a `:branch' to install a package from a particular branch or tag.
-;; This is required for some packages whose default branch isn't 'master' (which
-;; our package manager can't deal with; see radian-software/straight.el#279)
-;; (package! builtin-package :recipe (:branch "develop"))
-
-;; Use `:pin' to specify a particular commit to install.
-;; (package! builtin-package :pin "1a2b3c4d5e")
+;; Rust debugging (optional but recommended)
+(package! dap-mode)         ;; Required for CodeLLDB
+(package! lsp-mode)         ;; Ensures latest RA integration
+(package! lsp-ui)           ;; Hover docs, lenses, etc.
 
 
-;; Doom's packages are pinned to a specific commit and updated from release to
-;; release. The `unpin!' macro allows you to unpin single packages...
-;; (unpin! pinned-package)
-;; ...or multiple packages
-;; (unpin! pinned-package another-pinned-package)
-;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
-;; (unpin! t)
+;; ------------------------------
+;; Tree-sitter Enhancements
+;; ------------------------------
+(package! tree-sitter)
+(package! tree-sitter-langs)
+;;(package! ts-fold)           ;; Better folding
+(package! evil-tree-edit)    ;; Edit syntax tree
+
+;; ------------------------------
+;; Editing / Productivity
+;; ------------------------------
+(package! highlight-indent-guides)
+(package! centaur-tabs)
+(package! websocket)
+(package! editorconfig)
+
+;; ------------------------------
+;; Optional AI Coding Helpers
+;; ------------------------------
+(package! gptel)              ;; Local AI / OpenAI / Llama interface
