@@ -6,7 +6,8 @@ return {
         "rcarriga/nvim-dap-ui",
     },
     config = function(_, opts)
-        local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
+        --local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
+        local path = "/usr/bin/python3"
         require("dap-python").setup(path)
         table.insert(require('dap').configurations.python, {
             type = 'python',

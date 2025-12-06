@@ -92,3 +92,4 @@ map("n", "<leader>fs", "<cmd> Sessions <CR>", { desc = "Find Sessions" })
 
 -- map to save file
 map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+

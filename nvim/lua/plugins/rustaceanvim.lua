@@ -1,36 +1,23 @@
+-- ~/.config/nvim/lua/plugins/rustaceanvim.lua
 return {
-  'mrcjkb/rustaceanvim',
-  version = '^5', -- Recommended
-  ft = "rust",
+  "mrcjkb/rustaceanvim",
+  ft = { "rust" }, -- load only for Rust files
   config = function()
-    local ok, mason_registry = pcall(require, 'mason-registry')
-    if not ok then
-      vim.notify("Failed to load mason-registry", vim.log.levels.ERROR)
+    local ok, rust = pcall(require, "rustaceanvim")
+    if not ok or not rust.config then
+      vim.notify("rustaceanvim plugin not available or config function missing!", vim.log.levels.WARN)
       return
     end
 
-    -- Use pcall to safely get the package
-    local success, codelldb = pcall(mason_registry.get_package, "codelldb")
-    if not success then
-      vim.notify("codelldb is not available in mason-registry", vim.log.levels.ERROR)
-      return
-    end
-
-    if not codelldb:is_installed() then
-      vim.notify("codelldb is not installed. Please run :MasonInstall codelldb", vim.log.levels.ERROR)
-      return
-    end
-
-    local extension_path = codelldb:get_install_path() .. "/extension/"
-    local codelldb_path = extension_path .. "adapter/codelldb"
-    local liblldb_path = extension_path .. "lldb/lib/liblldb.so" -- or .dylib on macOS
-
-    local cfg = require('rustaceanvim.config')
-
-    vim.g.rustaceanvim = {
-      dap = {
-        adapter = cfg.get_codelldb_adapter(codelldb_path, liblldb_path),
+    rust.config({
+      tools_path = vim.fn.stdpath("data") .. "/rust-tools",
+      tools = {
+        inlay_hints = { auto = true },
+        runnables = { use_telescope = true },
       },
-    }
+      lsp = {
+        -- optional: add LSP overrides here
+      },
+    })
   end,
 }
